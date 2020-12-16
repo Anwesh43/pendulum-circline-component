@@ -4,9 +4,9 @@ import {
 }  from 'react'
 import { cumulativeRotation } from './utils'
 
-export const useAnimatedScale = (scGap = 0.92, delay = 20) => {
+export const useAnimatedScale = (scGap = 0.02, delay = 20) => {
     const [scale, setScale] = useState(0)
-    const [animated, setAnimated] = useAnimated(false)
+    const [animated, setAnimated] = useState(false)
     return {
         scale, 
         start() {
@@ -15,6 +15,7 @@ export const useAnimatedScale = (scGap = 0.92, delay = 20) => {
               let currScale = 0
               const interval = setInterval(() => {
                   currScale += scGap 
+                  console.log(currScale)
                   setScale(currScale)
                   if (currScale > 1) {
                       setScale(0)
@@ -52,7 +53,8 @@ export const useStyle = (scale, w, h, n, deg) => {
     const r = Math.min(w, h) / 12.2 
     return {
         parentStyle() {
-            const WebkitTransform = `rotate(${cumulativeRotation(scale, n, deg)})deg`
+            const WebkitTransform = `rotate(${cumulativeRotation(scale, n, deg)}deg)`
+            console.log(WebkitTransform)
             return {
                 position, 
                 left, 
@@ -69,8 +71,7 @@ export const useStyle = (scale, w, h, n, deg) => {
                 position,
                 width, 
                 top, 
-                left, 
-                width, 
+                left,  
                 height,
                 background
             }
@@ -87,7 +88,8 @@ export const useStyle = (scale, w, h, n, deg) => {
                 top, 
                 width,
                 height,
-                background 
+                background,
+                borderRadius
             }
         }
     }

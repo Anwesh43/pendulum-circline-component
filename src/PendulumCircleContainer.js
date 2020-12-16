@@ -7,9 +7,9 @@ import PendulumCircleComponent from './PendulumCircleComponent'
 
 const PendulumCircleContainer = ({n, deg}) => {  
     const {w, h} = useDimension()
-    const {scale, start} = useAnimatedScale(0.02, 20)
+    const {scale, start} = useAnimatedScale(0.02 / n, 20)
     return (
-        <PendulumCircleComponent scale = {scale} w = {w} h = {h} onClick = {onClick} n = {n} deg = {deg}>
+        <PendulumCircleComponent scale = {scale} w = {w} h = {h} onClick = {start} n = {n} deg = {deg}>
         </PendulumCircleComponent>
     )
 }
