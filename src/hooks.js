@@ -4,7 +4,7 @@ import {
 }  from 'react'
 import { cumulativeRotation } from './utils'
 
-export const useAnimated = (scGap = 0.92, delay = 20) => {
+export const useAnimatedScale = (scGap = 0.92, delay = 20) => {
     const [scale, setScale] = useState(0)
     const [animated, setAnimated] = useAnimated(false)
     return {
